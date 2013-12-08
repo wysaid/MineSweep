@@ -3,7 +3,7 @@
 
 <h2><b>Here is some screenshots</b></h2>
 
-<p><img src="https://raw.github.com/wysaid/MineSweep/master/screenshot1.jpg"></p>
-<p><img src="https://raw.github.com/wysaid/MineSweep/master/screenshot2.jpg"></p>
-<p><img src="https://raw.github.com/wysaid/MineSweep/master/screenshot3.jpg"></p>
-<p><img src="https://raw.github.com/wysaid/MineSweep/master/screenshot4.jpg"></p>
+<p><img src="https://raw.github.com/wysaid/MineSweep/master/screenshot1.JPG"></p>
+<p><img src="https://raw.github.com/wysaid/MineSweep/master/screenshot2.JPG"></p>
+<p><img src="https://raw.github.com/wysaid/MineSweep/master/screenshot3.JPG"></p>
+<p><img src="https://raw.github.com/wysaid/MineSweep/master/screenshot4.JPG"></p>
