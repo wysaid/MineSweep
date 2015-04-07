@@ -8,14 +8,6 @@
 
 #include "MineSweep.h"
 
-#ifndef _CRT_SECURE_NO_WARNINGS
-#define _CRT_SECURE_NO_WARNINGS
-#endif
-
-#ifndef _CRT_SECURE_NO_DEPRECATE
-#define _CRT_SECURE_NO_DEPRECATE
-#endif
-
 BlockType MARK;
 MineArray g_mineArray;
 BGManager g_bgm;
@@ -111,6 +103,7 @@ DIRECTIONS play()
 		bool needRedraw = false;
 		while(mousemsg())
 		{
+			MOUSEMSG    EGEAPI GetMouseMsg();
 			msg = GetMouseMsg();
 			if(msg.uMsg == WM_MOUSEMOVE && msg.x/IMG_SIZE == lastx/IMG_SIZE && msg.y/IMG_SIZE == lasty/IMG_SIZE)
 				continue;

@@ -8,14 +8,6 @@
 
 #include "MineSweep.h"
 
-#ifndef _CRT_SECURE_NO_WARNINGS
-#define _CRT_SECURE_NO_WARNINGS
-#endif
-
-#ifndef _CRT_SECURE_NO_DEPRECATE
-#define _CRT_SECURE_NO_DEPRECATE
-#endif
-
 extern BlockType MARK;
 extern int g_scrWidth, g_scrHeight;
 extern BGManager g_bgm;

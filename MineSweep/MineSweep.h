@@ -10,17 +10,14 @@
 #define _MINESWEEP_H_
 
 #ifdef UNICODE
-#undef  UNICODE
+#undef UNICODE
 #endif
 
-#ifndef _CRT_SECURE_NO_WARNINGS
-#define _CRT_SECURE_NO_WARNINGS
-#endif
+//_CRT_SECURE_NO_DEPRECATE
+#pragma warning(disable: 4996)
 
-#ifndef _CRT_SECURE_NO_DEPRECATE
-#define _CRT_SECURE_NO_DEPRECATE
-#endif
 #include "graphics.h"
+
 #include <cstdlib>
 #include <ctime>
 #include <cstdio>
