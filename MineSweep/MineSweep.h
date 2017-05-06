@@ -10,24 +10,27 @@
 #define _MINESWEEP_H_
 
 #ifdef UNICODE
-#undef  UNICODE
+#undef UNICODE
 #endif
 
-#ifndef _CRT_SECURE_NO_WARNINGS
-#define _CRT_SECURE_NO_WARNINGS
-#endif
+//_CRT_SECURE_NO_DEPRECATE
+#pragma warning(disable: 4996)
 
-#ifndef _CRT_SECURE_NO_DEPRECATE
-#define _CRT_SECURE_NO_DEPRECATE
-#endif
-
-#include <windows.h>
-#ifdef _CRT_DEPRECATE_TEXT
-#undef _CRT_DEPRECATE_TEXT
-#define _CRT_DEPRECATE_TEXT(...) 
-#endif
-
+// <<<<<<< HEAD
+// #ifndef _CRT_SECURE_NO_DEPRECATE
+// #define _CRT_SECURE_NO_DEPRECATE
+// #endif
+// 
+// #include <windows.h>
+// #ifdef _CRT_DEPRECATE_TEXT
+// #undef _CRT_DEPRECATE_TEXT
+// #define _CRT_DEPRECATE_TEXT(...) 
+// #endif
+// 
+// =======
+// >>>>>>> f1ed20a073c902ea704e1a95e7d8a3890ac1e3ad
 #include "graphics.h"
+
 #include <cstdlib>
 #include <ctime>
 #include <cstdio>
