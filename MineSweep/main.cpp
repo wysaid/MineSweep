@@ -103,7 +103,6 @@ DIRECTIONS play()
 		bool needRedraw = false;
 		while(mousemsg())
 		{
-			MOUSEMSG    EGEAPI GetMouseMsg();
 			msg = GetMouseMsg();
 			if(msg.uMsg == WM_MOUSEMOVE && msg.x/IMG_SIZE == lastx/IMG_SIZE && msg.y/IMG_SIZE == lasty/IMG_SIZE)
 				continue;
