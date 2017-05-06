@@ -20,6 +20,13 @@
 #ifndef _CRT_SECURE_NO_DEPRECATE
 #define _CRT_SECURE_NO_DEPRECATE
 #endif
+
+#include <windows.h>
+#ifdef _CRT_DEPRECATE_TEXT
+#undef _CRT_DEPRECATE_TEXT
+#define _CRT_DEPRECATE_TEXT(...) 
+#endif
+
 #include "graphics.h"
 #include <cstdlib>
 #include <ctime>
@@ -134,10 +141,10 @@ public:
 	void loseFrame();
 	~MineArray();
 private:
-	void m_randomize(bool** b, int width, int height, int num, int , int);
-	void m_initBlocks(bool**);
-	void m_findMore(int, int);
-	void m_markAll();
+	void randomize(bool** b, int width, int height, int num, int , int);
+	void initBlocks(bool**);
+	void findMore(int, int);
+	void markAll();
 	int m_width, m_height;
 	int m_firedX, m_firedY;
 	int m_blockNum;

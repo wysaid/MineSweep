@@ -236,7 +236,7 @@ bool MineArray::init(int width, int height, int x, int y, int num)
 		mark[i] = new bool[height];
 		memset(mark[i], 0, height * sizeof(bool));
 	}
-	m_randomize(mark, width, height, num, x, y);
+	randomize(mark, width, height, num, x, y);
 	
 	m_block = new Block**[width];
 	for(i = 0; i != width; ++i)
@@ -253,7 +253,7 @@ bool MineArray::init(int width, int height, int x, int y, int num)
 				m_block[a][b] = new Block(a * IMG_SIZE, b * IMG_SIZE);
 		}
 	}
-	m_initBlocks(mark);
+	initBlocks(mark);
 	for(i = 0; i != width; ++i)
 	{
 		delete[] mark[i];
@@ -263,7 +263,7 @@ bool MineArray::init(int width, int height, int x, int y, int num)
 	return true;
 }
 
-void MineArray::m_initBlocks(bool** mark)
+void MineArray::initBlocks(bool** mark)
 {
 	for(int a = 0; a != m_width; ++a)
 	{
@@ -308,7 +308,7 @@ MineArray::	~MineArray()
 	delimage(m_imgSpace[0]);
 }
 
-void MineArray::m_randomize(bool** b, int width, int height, int num, int x, int y)
+void MineArray::randomize(bool** b, int width, int height, int num, int x, int y)
 {
 	int rndx, rndy, cnt = 0, length = width * height, firstclick = x*width + height;
 	srand(unsigned(time(NULL)));
@@ -429,7 +429,7 @@ void MineArray::searchFrame(int x, int y)
 		}
 }
 
-void MineArray::m_findMore(int x, int y)
+void MineArray::findMore(int x, int y)
 {
 	if(x < 0 || x >= m_width || y < 0 || y >= m_height)
 		return;
@@ -438,14 +438,14 @@ void MineArray::m_findMore(int x, int y)
 	{
 		m_block[x][y]->setType(FOUND);
 		--m_blockNum;
-		m_findMore(x-1,y);
-		m_findMore(x,y-1);
-		m_findMore(x-1, y-1);
-		m_findMore(x+1,y);
-		m_findMore(x+1, y-1);
-		m_findMore(x,y+1);
-		m_findMore(x-1, y+1);
-		m_findMore(x+1, y+1);
+		findMore(x-1,y);
+		findMore(x,y-1);
+		findMore(x-1, y-1);
+		findMore(x+1,y);
+		findMore(x+1, y-1);
+		findMore(x,y+1);
+		findMore(x-1, y+1);
+		findMore(x+1, y+1);
 	}
 	else if(m_block[x][y]->getNum() > 0 && tp != FOUND)
 	{
@@ -471,7 +471,7 @@ bool MineArray::sweep(int x, int y)
 	case CHOSEN:
 	case UNKNOWN:
 	case UNKNOWN_CHOSEN:
-		m_findMore(x, y);
+		findMore(x, y);
 	default:;
 	}
 
@@ -610,7 +610,7 @@ void MineArray::winFrame()
 }
 
 
-void MineArray::m_markAll()
+void MineArray::markAll()
 {
 	for(int i=0; i != m_width; ++i)
 		for(int j=0; j != m_height; ++j)
@@ -640,7 +640,7 @@ void MineArray::loseFrame()
 	using std::vector;
 	vector<Block*> vec;
 	vec.push_back(m_block[m_firedX][m_firedY]);
-	m_markAll();
+	markAll();
 	m_block[m_firedX][m_firedY]->setType(ONFIRE);
 	m_block[m_firedX][m_firedY]->setFire();
 	while(kbhit()) getch();
