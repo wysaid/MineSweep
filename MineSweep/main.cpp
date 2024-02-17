@@ -204,7 +204,7 @@ void replay()
 void set()
 {
     char str[64];
-    char* p = "请输入所需的列数(width)、行数(height)以及地雷数，用空格隔开";
+    const char* p = "请输入所需的列数(width)、行数(height)以及地雷数，用空格隔开";
     int w, h, n;
     for (bool b = false; !b;)
     {

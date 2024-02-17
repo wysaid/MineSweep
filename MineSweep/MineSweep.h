@@ -97,7 +97,7 @@ public:
 
 private:
     int m_bombCnt;
-    char* m_bomb;
+    const char* m_bomb;
 };
 
 class Block
