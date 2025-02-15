@@ -11,8 +11,10 @@
 extern BlockType MARK;
 extern int g_scrWidth, g_scrHeight;
 extern BGManager g_bgm;
-PIMAGE *Block::imgBlock, *Block::imgMine, *Block::imgFlag, *Block::imgUnknown, *Block::imgSpace;
-PIMAGE *Mine::imgBlock, *Mine::imgMine, *Mine::imgFlag, *Mine::imgUnknown, *Mine::imgSpace;
+PIMAGE *Block::imgBlock, *Block::imgMine, *Block::imgFlag, *Block::imgUnknown,
+    *Block::imgSpace;
+PIMAGE *Mine::imgBlock, *Mine::imgMine, *Mine::imgFlag, *Mine::imgUnknown,
+    *Mine::imgSpace;
 int Mine::bomb = 0;
 
 BGManager::BGManager() :
@@ -253,7 +255,8 @@ bool MineArray::init(int width, int height, int x, int y, int num)
     m_width = width;
     m_height = height;
     m_blockNum = width * height - num;
-    if (num >= width * height) return false;
+    if (num >= width * height)
+        return false;
     int i;
     bool** mark = new bool*[width];
     for (i = 0; i != width; ++i)
@@ -297,14 +300,22 @@ void MineArray::initBlocks(bool** mark)
         {
             if (mark[a][b])
             {
-                if (a - 1 >= 0) m_block[a - 1][b]->addMine();
-                if (b - 1 >= 0) m_block[a][b - 1]->addMine();
-                if (a - 1 >= 0 && b - 1 >= 0) m_block[a - 1][b - 1]->addMine();
-                if (a + 1 < m_width) m_block[a + 1][b]->addMine();
-                if (b + 1 < m_height) m_block[a][b + 1]->addMine();
-                if (a + 1 < m_width && b + 1 < m_height) m_block[a + 1][b + 1]->addMine();
-                if (a - 1 >= 0 && b + 1 < m_height) m_block[a - 1][b + 1]->addMine();
-                if (a + 1 < m_width && b - 1 >= 0) m_block[a + 1][b - 1]->addMine();
+                if (a - 1 >= 0)
+                    m_block[a - 1][b]->addMine();
+                if (b - 1 >= 0)
+                    m_block[a][b - 1]->addMine();
+                if (a - 1 >= 0 && b - 1 >= 0)
+                    m_block[a - 1][b - 1]->addMine();
+                if (a + 1 < m_width)
+                    m_block[a + 1][b]->addMine();
+                if (b + 1 < m_height)
+                    m_block[a][b + 1]->addMine();
+                if (a + 1 < m_width && b + 1 < m_height)
+                    m_block[a + 1][b + 1]->addMine();
+                if (a - 1 >= 0 && b + 1 < m_height)
+                    m_block[a - 1][b + 1]->addMine();
+                if (a + 1 < m_width && b - 1 >= 0)
+                    m_block[a + 1][b - 1]->addMine();
             }
         }
     }
@@ -334,15 +345,18 @@ MineArray::~MineArray()
     delimage(m_imgSpace[0]);
 }
 
-void MineArray::randomize(bool** b, int width, int height, int num, int x, int y)
+void MineArray::randomize(bool** b, int width, int height, int num, int x,
+                          int y)
 {
-    int rndx, rndy, cnt = 0, length = width * height, firstclick = x * width + height;
+    int rndx, rndy, cnt = 0, length = width * height,
+                    firstclick = x * width + height;
     srand(unsigned(time(NULL)));
     while (num > 0)
     {
         rndx = rand() % width;
         rndy = rand() % height;
-        if (rndx == x && rndy == y) continue;
+        if (rndx == x && rndy == y)
+            continue;
         if (b[rndx][rndy])
         {
             if (++cnt > 10)
@@ -357,7 +371,8 @@ void MineArray::randomize(bool** b, int width, int height, int num, int x, int y
                         break;
                     }
                 }
-                if (i == length) return;
+                if (i == length)
+                    return;
             }
         }
         else
@@ -438,7 +453,8 @@ void MineArray::searchFrame(int x, int y)
     for (int i = x - 1; i <= x + 1; ++i)
         for (int j = y - 1; j <= y + 1; ++j)
         {
-            if (i >= 0 && i < m_width && j >= 0 && j < m_height && m_block[i][j]->canBeSearched())
+            if (i >= 0 && i < m_width && j >= 0 && j < m_height &&
+                m_block[i][j]->canBeSearched())
             {
                 putimage(i * IMG_SIZE, j * IMG_SIZE, m_imgSpace[0]);
             }
@@ -499,7 +515,8 @@ void MineArray::keyDown(int x, int y)
     // 	static int lastx, lasty;
     // 	if(m_keyCtrl)
     // 	{
-    // 		if(m_block[x][y]->getType() == CHOSEN && lastx != x && lasty != y)
+    // 		if(m_block[x][y]->getType() == CHOSEN && lastx != x && lasty !=
+    // y)
     // 		{
     // 			m_block[x][y]->setType(SPACE);
     // 			m_block[lastx][lasty]->setType(NORMAL);
@@ -647,7 +664,8 @@ void MineArray::markAll()
                     m_block[i][j]->setType(WRONGFLAG);
                 break;
             case UNKNOWN:
-                if (m_block[i][j]->isMine()) m_block[i][j]->setType(UNKNOWN_MINE);
+                if (m_block[i][j]->isMine())
+                    m_block[i][j]->setType(UNKNOWN_MINE);
                 //				else m_block[i][j]->setType(WRONGQMARK);
                 break;
             default:;

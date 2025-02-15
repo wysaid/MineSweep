@@ -10,17 +10,17 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/Debug/MineSweep.exe",
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}/build",
+            "cwd": "${workspaceFolder}/build/Debug",
             "environment": [],
             "console": "integratedTerminal",
             "preLaunchTask": "Run Project (Debug)",
-
             "osx": {
                 "program": "/bin/bash",
                 "args": [
                     "-c",
                     "echo Run ${workspaceFolder}/build/MineSweep.exe done."
                 ],
+                "cwd": "${workspaceRoot}/build"
             },
             "windows": {
                 "preLaunchTask": "Build Project (Debug)"
@@ -32,17 +32,17 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/Release/MineSweep.exe",
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}/build",
+            "cwd": "${workspaceFolder}/build/Release",
             "environment": [],
             "console": "integratedTerminal",
             "preLaunchTask": "Run Project (Release)",
-
             "osx": {
                 "program": "/bin/bash",
                 "args": [
                     "-c",
                     "echo Run ${workspaceFolder}/build/MineSweep.exe done."
                 ],
+                "cwd": "${workspaceRoot}/build"
             },
             "windows": {
                 "preLaunchTask": "Build Project (Release)"

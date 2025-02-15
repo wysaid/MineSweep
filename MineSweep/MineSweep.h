@@ -119,7 +119,10 @@ public:
     }
     BlockType getType() { return m_type; }
     void setType(BlockType type) { m_type = type; }
-    bool canBeSearched() { return m_type == FOUND || m_type == FLAG ? false : true; }
+    bool canBeSearched()
+    {
+        return m_type == FOUND || m_type == FLAG ? false : true;
+    }
     static PIMAGE *imgBlock, *imgMine, *imgFlag, *imgUnknown, *imgSpace;
 
 protected:
