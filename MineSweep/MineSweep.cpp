@@ -8,6 +8,10 @@
 
 #include "MineSweep.h"
 
+#define PIXEL2BLOCK(x, y)               \
+    x = min(x / IMG_SIZE, m_width - 1); \
+    y = min(y / IMG_SIZE, m_height - 1)
+
 extern BlockType MARK;
 extern int g_scrWidth, g_scrHeight;
 extern BGManager g_bgm;

@@ -32,12 +32,6 @@
 
 #define BUFFERSIZE 1024
 
-#define PIXEL2MAP(x, y)          \
-    x = x / IMG_SIZE * IMG_SIZE; \
-    y = y / IMG_SIZE * IMG_SIZE
-#define PIXEL2BLOCK(x, y) \
-    x /= IMG_SIZE;        \
-    y /= IMG_SIZE
 #define DELAY_FPS (60 / 7)
 
 #define RANDF ((rand() % 1000 / 1000.0 + 0.2) * pow(-1.0f, rand() % 10))
