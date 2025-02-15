@@ -105,9 +105,9 @@ if (DEFINED osLibDir)
 endif ()
 
 file(GLOB GAME_RESOURCES
-        ${CMAKE_CURRENT_SOURCE_DIR}/MineSweep/*.bmp
-        ${CMAKE_CURRENT_SOURCE_DIR}/MineSweep/*.mp3
-        ${CMAKE_CURRENT_SOURCE_DIR}/MineSweep/*.wav
+        ${CMAKE_CURRENT_SOURCE_DIR}/resource/*.bmp
+        ${CMAKE_CURRENT_SOURCE_DIR}/resource/*.mp3
+        ${CMAKE_CURRENT_SOURCE_DIR}/resource/*.wav
 )
 
 foreach (RES_FILE ${GAME_RESOURCES})

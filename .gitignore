@@ -218,3 +218,4 @@ pip-log.txt
 
 *-build-*
 .idea/
+.vs/
