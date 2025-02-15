@@ -32,8 +32,17 @@ void startFrame()
     rect.left = rect.top = 0;
     rect.right = g_scrWidth;
     rect.bottom = g_scrHeight;
-    outtextrect(0, 0, g_scrWidth, g_scrHeight, "点击任意方格以开始游戏! \n 注意:\n游戏开始后按住ESC点击或者移动鼠标可退出,\n按住space键点击或者移动鼠标可以激活输入窗口自由设定雷区大小\n和雷数! \n 按住Enter键点击或者移动鼠标可以重新开始\n扫雷游戏的规则请自行百度.\n提示：右键插旗，左右双键可以探测快速扫雷。\n第一次点击以后初始化，肯定不会踩到雷");
-    Sleep(1);
+    outtextrect(0, 0, g_scrWidth, g_scrHeight, R"(
+点击任意方格以开始游戏! 
+注意:
+游戏开始后按住ESC点击或者移动鼠标可退出,
+按住space键点击或者移动鼠标可以激活输入窗口自由设定雷区大小
+和雷数! 
+按住Enter键点击或者移动鼠标可以重新开始
+扫雷游戏的规则请自行百度.
+提示：右键插旗，左右双键可以探测快速扫雷。
+第一次点击以后初始化，肯定不会踩到雷
+)");
 }
 
 inline Message translateMsg(MOUSEMSG& msg)
@@ -184,8 +193,6 @@ void replay()
     startFrame();
     MOUSEMSG msg;
 
-    Sleep(0);
-
     for (; is_run(); delay_fps(60))
     {
         if (mousemsg() && (msg = GetMouseMsg()).uMsg == WM_LBUTTONUP)
@@ -272,7 +279,7 @@ void youLose()
 
 void init()
 {
-    initgraph(g_scrWidth, g_scrHeight);
+    initgraph(g_scrWidth, g_scrHeight, INIT_RENDERMANUAL);
     setbkmode(TRANSPARENT);
     g_hwnd = getHWnd();
     SetWindowText(g_hwnd, "Simple MineSweep —— by wysaid");
